@@ -42,4 +42,8 @@ public class UserService {
     public boolean deleteById(Long id) {
         return userMapper.deleteById(id) > 0;
     }
+
+    public List<User> findByAgeGreaterThan(int minAge) {
+        return userMapper.findByAgeGreaterThan(minAge);
+    }
 }

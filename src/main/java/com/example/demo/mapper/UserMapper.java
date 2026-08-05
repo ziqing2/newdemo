@@ -27,4 +27,7 @@ public interface UserMapper {
 
     /** 根据 ID 删除用户 (XML 方式) */
     int deleteById(@Param("id") Long id);
+
+    /** 查询年龄大于指定值的用户 (XML 方式) */
+    List<User> findByAgeGreaterThan(@Param("minAge") int minAge);
 }
