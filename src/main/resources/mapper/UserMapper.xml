@@ -49,4 +49,12 @@
         WHERE id = #{id}
     </delete>
 
+    <!-- 查询年龄大于指定值的用户 -->
+    <select id="findByAgeGreaterThan" resultMap="userResultMap">
+        SELECT id, name, age, email
+        FROM t_user
+        WHERE age > #{minAge}
+        ORDER BY age DESC
+    </select>
+
 </mapper>

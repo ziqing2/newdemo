@@ -18,6 +18,11 @@ GET http://localhost:8080/api/users/999
 Accept: application/json
 
 
+### ----- 3.5. 按年龄筛选（年龄大于25的用户） -----
+GET http://localhost:8080/api/users/search?minAge=25
+Accept: application/json
+
+
 ### ----- 4. 创建新用户 -----
 POST http://localhost:8080/api/users
 Content-Type: application/json

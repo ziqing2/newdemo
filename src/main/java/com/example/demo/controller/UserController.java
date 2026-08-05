@@ -27,6 +27,12 @@ public class UserController {
         return ResponseEntity.ok(userService.findAll());
     }
 
+    /** GET /api/users/search?minAge=25 —— 按年龄筛选 */
+    @GetMapping("/search")
+    public ResponseEntity<List<User>> searchByAge(@RequestParam("minAge") int minAge) {
+        return ResponseEntity.ok(userService.findByAgeGreaterThan(minAge));
+    }
+
     /** GET /api/users/{id} —— 根据 ID 获取用户 */
     @GetMapping("/{id}")
     public ResponseEntity<User> getById(@PathVariable Long id) {
