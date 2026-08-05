@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  # ========== 默认使用 MySQL ==========
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: zitaochen1017@126.com
+
+  # MySQL 是外部数据库，不自动执行初始化脚本（请手动执行 init-mysql.sql）
+  sql:
+    init:
+      mode: never
+
+# MyBatis 配置
+mybatis:
+  type-aliases-package: com.example.demo.entity
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 日志级别
+logging:
+  level:
+    com.example.demo: debug

@@ -1,0 +1,71 @@
+### ===================================================
+### Spring Boot + MyBatis Demo - API 测试集合
+### 使用方式：点击每行左侧的绿色三角形 ▶ 即可发送请求
+### ===================================================
+
+### ----- 1. 查询所有用户 -----
+GET http://localhost:8080/api/users
+Accept: application/json
+
+
+### ----- 2. 按 ID 查询用户 -----
+GET http://localhost:8080/api/users/1
+Accept: application/json
+
+
+### ----- 3. 查询不存在的用户(应返回404) -----
+GET http://localhost:8080/api/users/999
+Accept: application/json
+
+
+### ----- 4. 创建新用户 -----
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "赵六",
+  "age": 27,
+  "email": "zhaoliu@example.com"
+}
+
+
+### ----- 5. 再创建一个用户 -----
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "孙七",
+  "age": 33,
+  "email": "sunqi@example.com"
+}
+
+
+### ----- 6. 创建后再查所有（确认新增的都在） -----
+GET http://localhost:8080/api/users
+Accept: application/json
+
+
+### ----- 7. 更新用户（修改张三） -----
+PUT http://localhost:8080/api/users/1
+Content-Type: application/json
+
+{
+  "name": "张三(已修改)",
+  "age": 100,
+  "email": "zhangsan_new@example.com"
+}
+
+
+### ----- 8. 确认更新生效 -----
+GET http://localhost:8080/api/users/1
+Accept: application/json
+
+
+### ----- 9. 删除用户 -----
+DELETE http://localhost:8080/api/users/3
+Accept: application/json
+
+
+### ----- 10. 最终查询（确认删除后只剩哪些用户） -----
+GET http://localhost:8080/api/users
+Accept: application/json
